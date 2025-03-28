@@ -47,7 +47,7 @@ if st.button("Check Loan Eligibility"):
 
     input_df = pd.DataFrame(input_dict)
 
-    # Encode categorical variables using same mapping as in training
+    # Encoding categorical values
     replace_dict = {
         "Gender": {"Male": 1, "Female": 0},
         "married_Yes": {"Yes": 1, "No": 0},
@@ -58,7 +58,7 @@ if st.button("Check Loan Eligibility"):
 
     input_df.replace(replace_dict, inplace=True)
 
-    # Safe prediction with error handling
+    # Prediction with error handling
     try:
         prediction = model.predict(input_df)[0]
 
